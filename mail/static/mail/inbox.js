@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // By default, load the inbox
 
   load_mailbox('inbox');
-
   submit_compose_form();
+
 });
 
 function submit_compose_form() {
@@ -70,7 +70,7 @@ function open_email(mailbox) {
           'Subject: '.bold() + `${email.subject}` + '<br>' +
           'Timestamp: '.bold() + `${email.timestamp}` + '<br>';
 
-        document.querySelector('#email-content').innerHTML = email.body;
+        document.querySelector('#email-content').value = email.body;
 
         if (mailbox !== 'sent') {
           if (email.archived === false) {
@@ -95,10 +95,14 @@ function open_email(mailbox) {
             document.querySelector('#compose-subject').value = `Re: ${email.subject}`;
           }
 
-          document.querySelector('#compose-body').innerHTML = `
-          
-          On ${email.timestamp} ${email.sender} wrote: ${email.body}
-          `;
+          document.querySelector('#compose-body').value = 
+`
+
+-----------------------------------
+      On ${email.timestamp} ${email.sender} wrote: 
+      
+${email.body}
+`;
 
           submit_compose_form();
         }
@@ -129,6 +133,7 @@ function compose_email() {
   document.querySelector('#compose-recipients').value = '';
   document.querySelector('#compose-subject').value = '';
   document.querySelector('#compose-body').value = '';
+
 }
 
 function load_mailbox(mailbox) {
