@@ -153,13 +153,27 @@ function load_mailbox(mailbox) {
   .then(emails => {
       emails.forEach(email => {
         const element = document.createElement('div');
-        element.style.border = "0.5px solid #0000FF";
         element.className = 'email';
         element.dataset.id = email.id;
         if (email.read === true) {
-          element.style.backgroundColor = "gray";
+          element.style.backgroundColor = "#c7e1ff";
         }
-        element.innerHTML = `<div>from: ${email.sender}, subject is: ${email.subject}, timestamp: ${email.timestamp}</div>`;
+        element.innerHTML = 
+        `<div>`+
+
+        `<span style="float: left;"><span style="font-weight:bold">from: </span>`+
+        `<span>${email.sender} </span></span>`+
+
+        `<div style="display: inline-block; margin-left: 50px;`+
+        ` max-width: 210px;`+
+        ` white-space: nowrap; overflow: hidden;">`+
+        `<span style="font-weight:bold">subject: </span>`+
+        `<span>${email.subject} </span></div>`+
+
+        `<span style="float: right;"><span style="font-weight:bold">timestamp: </span>`+
+        `<span>${email.timestamp}</span></span>`+
+
+        `</div>`;
         document.querySelector('#emails-view').append(element);
         //console.log(email)
       });
