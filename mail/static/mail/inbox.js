@@ -161,16 +161,14 @@ function load_mailbox(mailbox) {
         element.innerHTML = 
         `<div>`+
 
-        `<span style="float: left;"><span style="font-weight:bold">from: </span>`+
+        `<span id="email-span-1"><span id="email-span-2">from: </span>`+
         `<span>${email.sender} </span></span>`+
 
-        `<div style="display: inline-block; margin-left: 50px;`+
-        ` max-width: 210px;`+
-        ` white-space: nowrap; overflow: hidden;">`+
-        `<span style="font-weight:bold">subject: </span>`+
-        `<span>${email.subject} </span></div>`+
+        `<div id="email-div-1">`+
+        `<span id="email-span-3">subject: </span>`+
+        `<span id="email-span-4">${email.subject} </span></div>`+
 
-        `<span style="float: right;"><span style="font-weight:bold">timestamp: </span>`+
+        `<span id="email-span-5"><span id="email-span-6">timestamp: </span>`+
         `<span>${email.timestamp}</span></span>`+
 
         `</div>`;
