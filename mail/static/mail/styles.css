@@ -1,8 +1,62 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-image: url('technology.jpg');
     background-size: cover;
     background-attachment: fixed;
 }
+
+#container {
+    width: 1200px;
+}
+
+#dummy {
+    height: 20px;
+}
+
+#request-user {
+    padding: 15px;
+    background-color: rgb(64, 224, 208, 0.5);
+    position: sticky;
+    top: 0px;
+}
+
+#request-user > h2 {
+    color: rgb(0, 0, 0, 1.0);
+}
+
+.column {
+    float: left;
+    padding: 15px;
+}
+ 
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+#menu {
+    width: 15%;
+}
+
+#main {
+    width: 85%;
+    
+}
+
+#menu ul {
+    list-style-type: none;
+}
+
+#menu li {
+    padding: 8px;
+    margin-bottom: 8px;
+}
+
+
 
 textarea {
     min-height: 400px;
