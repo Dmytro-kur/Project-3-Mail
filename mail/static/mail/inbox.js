@@ -159,8 +159,6 @@ function load_mailbox(mailbox) {
           element.style.backgroundColor = "#c7e1ff";
         }
         element.innerHTML = 
-        `<div>`+
-
         `<span id="email-span-1"><span id="email-span-2">from: </span>`+
         `<span>${email.sender} </span></span>`+
 
@@ -169,9 +167,8 @@ function load_mailbox(mailbox) {
         `<span id="email-span-4">${email.subject} </span></div>`+
 
         `<span id="email-span-5"><span id="email-span-6">timestamp: </span>`+
-        `<span>${email.timestamp}</span></span>`+
-
-        `</div>`;
+        `<span>${email.timestamp}</span></span>`;
+        
         document.querySelector('#emails-view').append(element);
         //console.log(email)
       });

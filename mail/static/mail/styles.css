@@ -13,26 +13,22 @@ textarea {
     padding: 5px;
     border: 0.5px solid #000000; 
     border-radius: 2.5px;
-    max-width: 800px;
+    width: 800px;
 }
 
 #email-span-1 {float: left;}
-#email-span-2, #email-span-3, #email-span-6 {font-weight: bold;}
+#email-span-2, #email-span-3, #email-span-6 {
+    font-weight: bold;
+}
 #email-div-1 {
-    display: inline-block; 
+    display: inline-block;
     margin-left: 50px;
-    max-width: 210px;
+    width: 210px;
     white-space: nowrap; 
     overflow: hidden;
 }
-
 #email-span-5 {float: right;}
 
 
-
-
-#emails-view {
-    min-width: 800px;
-}
 
 
