@@ -9,7 +9,7 @@ body {
 }
 
 #container {
-    min-width: 1000px;
+    min-width: 1100px;
 }
 
 #dummy {
@@ -25,6 +25,7 @@ body {
 
 #request-user > h2 {
     color: rgb(0, 0, 0, 1.0);
+    padding-left: 280px;
 }
 
 .column {
@@ -39,12 +40,11 @@ body {
 }
 
 #menu {
-    width: 15%;
+    width: 20%;
 }
 
 #main {
-    width: 85%;
-    
+    width: 80%;
 }
 
 #menu ul {
@@ -52,37 +52,74 @@ body {
 }
 
 #menu li {
-    padding: 8px;
-    margin-bottom: 8px;
+    padding: 4px;
+    margin-bottom: 4px;
 }
 
+.menu-items {
+    border: 1px solid black;
+    border-radius: 0.5px;
+    width: 120px;
+    text-align: right;
+    padding: 0px 5px 0px 5px;
+}
 
+.menu-items:hover {
+    outline-style: double;
+    outline-color: saddlebrown;
+    outline-width: 5px;
+}
+
+.menu-items:hover {
+    cursor: pointer;
+}
+
+/*#email {
+    background-color: rgb(169, 169, 169, 0.5);
+}*/
+
+#logout {
+    color: inherit;
+    text-decoration: inherit;
+}
 
 textarea {
     min-height: 400px;
 }
 
 .email {
-    margin: 5px 0px 5px 0px;
+    margin: 10px 0px 10px 0px;
     padding: 5px;
     border: 0.5px solid #000000; 
-    border-radius: 2.5px;
+    border-radius: 1.5px;
     width: 800px;
+    background-color: rgb(255, 248, 220, 0.5);
 }
 
-#email-span-1 {float: left;}
+.email:hover {
+    cursor: pointer;
+}
+
+#email-span-1 {float: left; color: black;} /* 1-st level */
 #email-span-2, #email-span-3, #email-span-6 {
     font-weight: bold;
 }
-#email-div-1 {
+#email-div-1 { /* 1-st level */
     display: inline-block;
     margin-left: 50px;
     width: 210px;
     white-space: nowrap; 
     overflow: hidden;
 }
-#email-span-5 {float: right;}
+#email-span-5 {float: right;} /* 1-st level */
 
+#mail-gif {
+    background-image: url('mail-gif.gif');
+    background-size: cover;
+    height: 100px;
+    width: 200px;
+    margin: auto;
+}
 
 
 

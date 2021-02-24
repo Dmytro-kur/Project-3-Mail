@@ -63,6 +63,8 @@ function open_email(mailbox) {
         document.querySelector('#emails-view').style.display = 'none';
         document.querySelector('#compose-view').style.display = 'none';
         document.querySelector('#email').style.display = 'block';
+        document.querySelector('#email').style.backgroundColor = "rgb(169, 169, 169, 0)";
+
 
         document.querySelector('#email-info').innerHTML = 
           'From: '.bold() + `${email.sender}` + '<br>' + 
@@ -156,7 +158,7 @@ function load_mailbox(mailbox) {
         element.className = 'email';
         element.dataset.id = email.id;
         if (email.read === true) {
-          element.style.backgroundColor = "#c7e1ff";
+          element.style.backgroundColor = "rgb(169, 169, 169, 0.3)";
         }
         element.innerHTML = 
         `<span id="email-span-1"><span id="email-span-2">from: </span>`+

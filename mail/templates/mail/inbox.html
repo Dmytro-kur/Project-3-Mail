@@ -8,12 +8,13 @@
     <div class="clearfix">
         <div class="column" id="menu">
             <ul>
-                <li><button class="btn btn-sm btn-outline-primary" id="inbox">Inbox</button></li>
-                <li><button class="btn btn-sm btn-outline-primary" id="compose">Compose</button></li>
-                <li><button class="btn btn-sm btn-outline-primary" id="sent">Sent</button></li>
-                <li><button class="btn btn-sm btn-outline-primary" id="archived">Archived</button></li>
-                <li><a class="btn btn-sm btn-outline-primary" href="{% url 'logout' %}">Log Out</a></li>
+                <li><div class="menu-items" id="inbox">Inbox</div></li>
+                <li><div class="menu-items" id="compose">Compose</div></li>
+                <li><div class="menu-items" id="sent">Sent</div></li>
+                <li><div class="menu-items" id="archived">Archived</div></li>
+                <li><div class="menu-items"><a id="logout" href="{% url 'logout' %}">Log Out</a></div></li>
             </ul>
+            <div id="mail-gif"></div>
         </div>
 
         <div class="column" id="main">
