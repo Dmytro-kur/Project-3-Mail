@@ -32,6 +32,10 @@ body {
     float: left;
     padding: 15px;
 }
+
+#inbox, #counter {
+    float: left;
+}
  
 .clearfix::after {
     content: "";
@@ -65,8 +69,8 @@ body {
 }
 
 .menu-items:hover {
-    outline-style: double;
-    outline-color: saddlebrown;
+    outline-style: solid;
+    outline-color:skyblue;
     outline-width: 5px;
 }
 

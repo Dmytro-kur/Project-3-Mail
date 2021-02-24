@@ -13,6 +13,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
+function inbox_email_number() {
+
+  fetch('/emails/inbox')
+  .then(response => response.json())
+  .then(emails => {
+    //console.log(emails.length)
+    var list = []
+    emails.forEach(email => {
+      if (email.read === false) {
+        list.push(email)
+      }
+    })
+    console.log(list)
+    document.querySelector('#counter').innerHTML = list.length;
+    })
+
+    
+  }
+
+
 function submit_compose_form() {
   document.querySelector("#compose-form").onsubmit = function () {
     fetch('/emails', {
@@ -145,7 +165,7 @@ function load_mailbox(mailbox) {
   document.querySelector('#compose-view').style.display = 'none';
   document.querySelector('#email').style.display = 'none';
   document.querySelector('#archiving').innerHTML = '';
-
+  inbox_email_number();
 
   // Show the mailbox name
   document.querySelector('#emails-view').innerHTML = `<h3>${mailbox.charAt(0).toUpperCase() + mailbox.slice(1)}</h3>`;
