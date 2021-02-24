@@ -9,15 +9,15 @@ body {
 }
 
 #container {
-    width: 1200px;
+    min-width: 1000px;
 }
 
 #dummy {
-    height: 20px;
+    height: 30px;
 }
 
 #request-user {
-    padding: 15px;
+    padding: 5px;
     background-color: rgb(64, 224, 208, 0.5);
     position: sticky;
     top: 0px;
