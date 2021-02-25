@@ -25,7 +25,7 @@ function inbox_email_number() {
         list.push(email)
       }
     })
-    console.log(list)
+    //console.log(list)
     document.querySelector('#counter').innerHTML = list.length;
     })
 
@@ -128,7 +128,6 @@ ${email.body}
 
           submit_compose_form();
         }
-
       });
       
       fetch(`/emails/${email.dataset.id}`, {
@@ -137,8 +136,6 @@ ${email.body}
             read: true
         })
       });
-
-
     }
   });
 }
