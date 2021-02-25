@@ -135,7 +135,8 @@ textarea {
 #email-span-5 {float: right;} /* 1-st level */
 
 #mail-gif {
-    background-image: url('Have_an_email_infinite.gif');
+    background-image: url('all_frames/Have an email/Have_an_email_infinite.gif');
+    /* animation: like-gif steps(28) 1s infinite both; */
     background-size: cover;
     height: 100px;
     width: 200px;
