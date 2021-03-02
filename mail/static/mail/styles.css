@@ -135,10 +135,19 @@ textarea {
 #email-span-5 {float: right;} /* 1-st level */
 
 #mail-gif {
-    background-image: url('Have_an_email_infinite.gif');
+    /*background-image: url('mail-gif.gif');*/
+    background: url('css_sprites_emails.png') 0 0px;
     background-size: cover;
-    height: 100px;
+    height: 131px;
     width: 200px;
+    border: 1px solid black;
+    animation: letter 5s steps(244) infinite;
+}
+
+@keyframes letter {
+    100% {
+        background-position-y: -63142px;
+    }
 }
 
 
