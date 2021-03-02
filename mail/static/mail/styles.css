@@ -136,17 +136,21 @@ textarea {
 
 #mail-gif {
     /*background-image: url('mail-gif.gif');*/
-    background: url('css_sprites_emails.png') 0 0px;
+    background: url('Sprites.png') 0 0px;
     background-size: cover;
     height: 131px;
     width: 200px;
-    border: 1px solid black;
-    animation: letter 5s steps(244) infinite;
+    border: 0px solid black;
+    animation: letter 7s steps(238) infinite;
 }
 
 @keyframes letter {
+    0% {
+        background-position-y: 0px;
+    }
     100% {
-        background-position-y: -63142px;
+        background-position-y: -31178px; /*400x62618 --- 200x31309
+                                            200x31178 (31178/238 = 131)*/
     }
 }
 
