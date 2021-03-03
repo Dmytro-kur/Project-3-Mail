@@ -44,6 +44,12 @@ function inbox_email_number(first) {
     const counter = document.querySelector('#counter')
     counter.innerHTML = list.length;
 
+    if (list.length !==0) {
+      document.querySelector('#counter-box').style.display = 'block';
+    } else {
+      document.querySelector('#counter-box').style.display = 'none';
+    }
+
     animate_letter(counter, first);
 
     });
