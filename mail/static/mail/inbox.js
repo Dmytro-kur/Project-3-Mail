@@ -226,18 +226,18 @@ function open_first_unread() {
       list.push(email)
     }
   })
-
-  fetch(`/emails/${list[0].dataset.id}`)
-  .then(response => response.json())
-  .then(email => {
-    render_email(email, 'inbox');
-  });
-
-  fetch(`/emails/${list[0].dataset.id}`, {
-    method: 'PUT',
-    body: JSON.stringify({
-        read: true
-    })
-  });
-
+  if (list[0]) {
+    fetch(`/emails/${list[0].dataset.id}`)
+    .then(response => response.json())
+    .then(email => {
+      render_email(email, 'inbox');
+    });
+  
+    fetch(`/emails/${list[0].dataset.id}`, {
+      method: 'PUT',
+      body: JSON.stringify({
+          read: true
+      })
+    });
+  }
 }
