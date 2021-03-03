@@ -134,22 +134,23 @@ textarea {
 }
 #email-span-5 {float: right;} /* 1-st level */
 
-#mail-gif {
-    /*background-image: url('mail-gif.gif');*/
+.mail-gif {
     background: url('Sprites.png') 0 0px;
     background-size: cover;
     height: 131px;
     width: 200px;
     border: 0px solid black;
-    animation: letter 7s steps(238) infinite;
+    /*animation: letter-1 7s steps(238) infinite;*/
+    
 }
+/*animation: vibro 1.117s steps(38) infinite;*/
+/*animation: opening 4.294s steps(146) forwards;*/
+/*animation: closing 0.294s steps(10) forwards;*/
 
-@keyframes letter {
-    100% {
-        background-position-y: -31178px; /*400x62618 --- 200x31309
-                                            200x31178 (31178/238 = 131)*/
-    }
-}
-
-
-
+/*@keyframes letter-1 {100% {background-position-y: -31178px;}}*/
+@keyframes vibro {0% {background-position-y: -2751px;}
+                    100% {background-position-y: -7729px;}}
+@keyframes opening {0% {background-position-y: -7991px;}
+                    100% {background-position-y: -27117px;}}
+@keyframes closing {0% {background-position-y: -27117px;}
+                    100% {background-position-y: -28427px;}}

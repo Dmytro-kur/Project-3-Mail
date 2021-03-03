@@ -1,19 +1,36 @@
 document.addEventListener('DOMContentLoaded', function() {
 
   // Use buttons to toggle between views
-  document.querySelector('#inbox').addEventListener('click', () => load_mailbox('inbox'));
-  document.querySelector('#sent').addEventListener('click', () => load_mailbox('sent'));
-  document.querySelector('#archived').addEventListener('click', () => load_mailbox('archive'));
+  document.querySelector('#inbox').addEventListener('click', () => load_mailbox('inbox', false));
+  document.querySelector('#sent').addEventListener('click', () => load_mailbox('sent', false));
+  document.querySelector('#archived').addEventListener('click', () => load_mailbox('archive', false));
   document.querySelector('#compose').addEventListener('click', compose_email);
 
   // By default, load the inbox
 
-  load_mailbox('inbox');
+  load_mailbox('inbox', true);
   submit_compose_form();
 
 });
 
-function inbox_email_number() {
+function animate_letter(obj, first) {
+  if (first === true) {
+    if (obj.innerHTML !== '0') {
+      document.querySelector('.mail-gif').style.animation = 'vibro 1.117s steps(38) 0.294s infinite'
+    } else {
+      document.querySelector('.mail-gif').style.animation = 'closing 0s steps(1) forwards'
+    }
+  } else {
+    if (obj.innerHTML !== '0') {
+      document.querySelector('.mail-gif').style.animation = 'closing 0.294s steps(10) forwards, vibro 1.117s steps(38) 0.294s infinite'
+    } else {
+      document.querySelector('.mail-gif').style.animation = 'closing 0.294s steps(10) forwards'
+    }
+  }
+
+}
+
+function inbox_email_number(first) {
 
   fetch('/emails/inbox')
   .then(response => response.json())
@@ -26,9 +43,12 @@ function inbox_email_number() {
       }
     })
     //console.log(list)
-    document.querySelector('#counter').innerHTML = list.length;
-    })
+    const counter = document.querySelector('#counter')
+    counter.innerHTML = list.length;
 
+    animate_letter(counter, first);
+
+    });
     
   }
 
@@ -46,7 +66,7 @@ function submit_compose_form() {
     .then(response => response.json())
     .then(result => {
         console.log(result);
-        load_mailbox('sent');
+        load_mailbox('sent', false);
     });
     return false;
   };
@@ -68,7 +88,7 @@ function archivations(archiving, email, stat) {
       })
     })
     .then(() => {
-      load_mailbox('inbox');
+      load_mailbox('inbox', false);
     });
   });
 }
@@ -80,6 +100,7 @@ function open_email(mailbox) {
       fetch(`/emails/${email.dataset.id}`)
       .then(response => response.json())
       .then(email => {
+        document.querySelector('.mail-gif').style.animation = 'opening 4.294s steps(146) forwards'
         document.querySelector('#emails-view').style.display = 'none';
         document.querySelector('#compose-view').style.display = 'none';
         document.querySelector('#email').style.display = 'block';
@@ -140,7 +161,8 @@ ${email.body}
   });
 }
 
-function compose_email() {
+function compose_email(first) {
+  animate_letter(document.querySelector('#counter'), first);
 
   // Show compose view and hide other views
   document.querySelector('#emails-view').style.display = 'none';
@@ -155,14 +177,14 @@ function compose_email() {
 
 }
 
-function load_mailbox(mailbox) {
+function load_mailbox(mailbox, first) {
 
   // Show the mailbox and hide other views
   document.querySelector('#emails-view').style.display = 'block';
   document.querySelector('#compose-view').style.display = 'none';
   document.querySelector('#email').style.display = 'none';
   document.querySelector('#archiving').innerHTML = '';
-  inbox_email_number();
+  inbox_email_number(first);
 
   // Show the mailbox name
   document.querySelector('#emails-view').innerHTML = `<h3>${mailbox.charAt(0).toUpperCase() + mailbox.slice(1)}</h3>`;
@@ -193,7 +215,6 @@ function load_mailbox(mailbox) {
       });
       open_email(mailbox);
   });
-  
   
 }
 
