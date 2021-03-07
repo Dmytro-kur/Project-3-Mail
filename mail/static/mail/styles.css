@@ -157,3 +157,8 @@ textarea {
 .mail-gif:hover {
     cursor: pointer;
 }
+
+#login, #register {
+    margin: auto;
+    max-width: 500px;
+}

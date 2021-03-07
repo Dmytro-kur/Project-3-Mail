@@ -8,10 +8,10 @@
     <div class="clearfix">
         <div class="column" id="menu">
             <ul>
-                <li><div class="clearfix"><div class="menu-items" id="inbox">Inbox</div><div id="counter-box"><div id="counter"></div></div></div></li>
-                <li><div class="menu-items" id="compose">Compose</div></li>
-                <li><div class="menu-items" id="sent">Sent</div></li>
-                <li><div class="menu-items" id="archived">Archived</div></li>
+                <li><div class="clearfix"><div class="menu-items history" id="inbox" data-button-name="inbox">Inbox</div><div id="counter-box"><div id="counter"></div></div></div></li>
+                <li><div class="menu-items history" id="compose" data-button-name="compose">Compose</div></li>
+                <li><div class="menu-items history" id="sent" data-button-name="sent">Sent</div></li>
+                <li><div class="menu-items  history" id="archived" data-button-name="archive">Archived</div></li>
                 <li><div class="menu-items"><a id="logout" href="{% url 'logout' %}">Log Out</a></div></li>
             </ul>
             <div class="mail-gif"></div>

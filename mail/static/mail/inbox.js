@@ -10,7 +10,48 @@ document.addEventListener('DOMContentLoaded', function() {
 
   load_mailbox('inbox', true);
   submit_compose_form();
+
+  button_history();
+
 });
+
+function button_history() {
+  document.querySelectorAll('.history').forEach(button => {
+    button.onclick = function() {
+      const name = this.dataset.buttonName;
+      history.pushState({name: name}, "", `/${name}`);
+    };
+  });
+}
+
+
+window.onpopstate = function(event) {
+  if (event.state) {
+    if (event.state.name === 'compose') {
+      console.log(event.state.name);
+      compose_email(true);
+    } else {
+      if (event.state.id) {
+        console.log(`${event.state.name},${event.state.id}`);
+        fetch(`/emails/${event.state.id}`)
+        .then(response => response.json())
+        .then(email => {
+          render_email(email, event.state.name);
+        });
+        
+        fetch(`/emails/${event.state.id}`, {
+          method: 'PUT',
+          body: JSON.stringify({
+              read: true
+          })
+        });
+      } else {
+        console.log(event.state.name);
+        load_mailbox(event.state.name, false);
+      }
+    }
+  }
+}
 
 function animate_letter(obj, first) {
   if (first === true) {
@@ -165,6 +206,11 @@ function open_email(mailbox) {
             read: true
         })
       });
+
+      const name = email.dataset.buttonName;
+      const id = email.dataset.id;
+      history.pushState({name: name, id: id}, "", `/${name}/${id}`);
+
     }
   });
 }
@@ -202,8 +248,9 @@ function load_mailbox(mailbox, first) {
   .then(emails => {
       emails.forEach(email => {
         const element = document.createElement('div');
-        element.className = 'email';
+        element.className = 'email history';
         element.dataset.id = email.id;
+        element.dataset.buttonName = mailbox;
         if (email.read === true) {
           element.style.backgroundColor = "rgb(169, 169, 169, 0.3)";
         }
@@ -223,6 +270,7 @@ function load_mailbox(mailbox, first) {
       });
       open_email(mailbox);
   });
+  
 }
 
 function open_first_unread() {
