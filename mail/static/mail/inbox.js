@@ -293,5 +293,9 @@ function open_first_unread() {
           read: true
       })
     });
+
+    const name = list[0].dataset.buttonName;
+    const id = list[0].dataset.id;
+    history.pushState({name: name, id: id}, "", `/${name}/${id}`);
   }
 }
